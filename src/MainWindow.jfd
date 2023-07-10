@@ -1,0 +1,209 @@
+JFDML JFormDesigner: "8.1.0.0.283" Java: "17.0.7" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.CardLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"visible": true
+			"preferredSize": new java.awt.Dimension( 850, 580 )
+			"title": "狐连 - 轻松连接手机"
+			"maximumSize": new java.awt.Dimension( 850, 580 )
+			"minimumSize": new java.awt.Dimension( 850, 580 )
+			"iconImage": new com.jformdesigner.model.SwingIcon( 0, "/drawable/logo.png" )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel1"
+				"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+					"axis": 1
+				} ) {
+					name: "panel2"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+						name: "panel3"
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"background": new java.awt.Color( 153, 153, 153, 0 )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+							name: "panel4"
+							"background": new java.awt.Color( 204, 204, 204, 255 )
+							"foreground": new java.awt.Color( 0, 0, 0, 0 )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "tv_icon_phone"
+								"icon": new com.jformdesigner.model.SwingIcon( 0, "/drawable/设置.png" )
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "tv_WaittingConnect"
+								"text": "等待手机连接中..."
+								"font": new java.awt.Font( "Microsoft YaHei", 0, 16 )
+							} )
+						} )
+						add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+							name: "hSpacer1"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label1"
+							"text": "Made with Love by 狐公子"
+							"border": new javax.swing.border.EmptyBorder( 0, 0, 0, 0 )
+							"font": new java.awt.Font( "微软雅黑", 0, 14 )
+						} )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "North"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+					"axis": 1
+				} ) {
+					name: "panel6"
+					add( new FormComponent( "javax.swing.JSeparator" ) {
+						name: "separator1"
+						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+						"border": new javax.swing.border.EmptyBorder( 10, 0, 0, 0 )
+						"maximumSize": new java.awt.Dimension( 32767, 1 )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"columns": 2
+						"rows": 2
+					} ) {
+						name: "panel7"
+						"border": new javax.swing.border.EmptyBorder( 5, 5, 0, 5 )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "bt_sendfile"
+							"icon": new com.jformdesigner.model.SwingIcon( 0, "/drawable/fileopen.png" )
+							"focusPainted": false
+							"borderPainted": false
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+							"axis": 1
+						} ) {
+							name: "panel8"
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+								name: "panel10"
+								add( new FormComponent( "javax.swing.JCheckBox" ) {
+									name: "checkBox2"
+									"text": "本机剪贴板同步手机"
+									"font": &Font0 new java.awt.Font( "微软雅黑", 0, 12 )
+									"selected": true
+									"visible": false
+								} )
+								add( new FormComponent( "javax.swing.JCheckBox" ) {
+									name: "checkBox3"
+									"text": "接收手机的剪贴板"
+									"font": #Font0
+									"selected": true
+									"visible": false
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+								name: "panel9"
+								add( new FormComponent( "javax.swing.JCheckBox" ) {
+									name: "checkBox1"
+									"text": "允许手机远程手机执行命令"
+									"font": #Font0
+									"selected": true
+									"visible": false
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+								name: "panel11"
+								"visible": false
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "bt_getphoneinfo"
+									"text": "获取手机详情"
+									"focusPainted": false
+									"font": #Font0
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "bt_manage"
+									"text": "管理授权的手机"
+									"focusPainted": false
+									"font": #Font0
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "button6"
+									"text": "文件夹同步工具"
+									"focusPainted": false
+									"font": #Font0
+									"visible": false
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+								"axis": 0
+							} ) {
+								name: "panel12"
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "bt_changedevicename"
+									"text": "改变手机备注"
+									"font": &Font1 new java.awt.Font( "微软雅黑", 0, 12 )
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+								"axis": 0
+							} ) {
+								name: "panel16"
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "bt_changedir"
+									"text": "改变文件保存位置"
+									"font": #Font1
+								} )
+							} )
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+							"columns": 2
+						} ) {
+							name: "panel13"
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+								"axis": 1
+							} ) {
+								name: "panel14"
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "label2"
+									"text": "使用狐连App扫描二维码连接"
+									"font": new java.awt.Font( "微软雅黑", 0, 12 )
+									"border": new javax.swing.border.EmptyBorder( 0, 5, 5, 5 )
+								} )
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "QRcodePic"
+									"icon": new com.jformdesigner.model.SwingIcon( 0, "/drawable/emote.png" )
+								} )
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+								"axis": 1
+							} ) {
+								name: "panel15"
+								add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+									name: "scrollPane1"
+									add( new FormComponent( "javax.swing.JTextArea" ) {
+										name: "ta_commandline"
+										"background": new java.awt.Color( 240, 240, 240, 255 )
+										"rows": 10
+										"font": new java.awt.Font( "微软雅黑", 0, 10 )
+									} )
+								} )
+							} )
+						} )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+					name: "panel5"
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.HSpacer" ) {
+						name: "hSpacer2"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "button1"
+						"text": "退出"
+						"focusPainted": false
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "ConnectPage"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 850, 580 )
+		} )
+	}
+}
