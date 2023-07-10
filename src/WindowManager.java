@@ -90,13 +90,7 @@ public class WindowManager {
                     String path=fileChooser.getSelectedFile().getPath();
                     File f= new File(path);
                     ServerManager.ch.sendcmd("pcsendfile<port>" + 37700 + "</port>"+"<filename>"+f.getName()+"</filename>");
-                    sendFileServer sendFileServer = null;
-                    try {
-                        sendFileServer = new sendFileServer(37700, path);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    sendFileServer.start();
+                    new sendFileServer(37700, path).start();
                 }
             }
         });
@@ -114,8 +108,7 @@ public class WindowManager {
                     }
                     File f= new File(filepath);
                     ServerManager.ch.sendcmd("pcsendfile<port>" + 37700 + "</port>"+"<filename>"+f.getName()+"</filename>");
-                    sendFileServer sendFileServer = new sendFileServer(37700, filepath);
-                    sendFileServer.start();
+                    new sendFileServer(37700, filepath).start();
                     return true;
                 } catch (Exception e) {
 

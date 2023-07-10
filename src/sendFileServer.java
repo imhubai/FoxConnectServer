@@ -11,17 +11,18 @@ public class sendFileServer extends Thread{
     Socket socket;
     ServerSocket serverSocket;
     String filePath;
-    public sendFileServer(int port,String filePath) throws IOException {
+    public sendFileServer(int port,String filePath) {
         this.filePath=filePath;
         this.port = port;
-         serverSocket = new ServerSocket(port);
-         socket = serverSocket.accept();
-        WindowManager.addCommandLine("正在发送文件到:" + socket.getInetAddress().getHostAddress());
+
     }
 
             @Override
             public void run() {
                 try {
+                        serverSocket = new ServerSocket(port);
+                        socket = serverSocket.accept();
+                        WindowManager.addCommandLine("正在发送文件到:" + socket.getInetAddress().getHostAddress());
                     File file = new File(filePath);
                     FileInputStream fis = new FileInputStream(file);
                     BufferedInputStream bis = new BufferedInputStream(fis);
