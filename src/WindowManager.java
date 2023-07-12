@@ -27,24 +27,16 @@ public class WindowManager {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.toString());
         }
         mainWindow = new MainWindow();
         mainWindow.setVisible(true);
-        mainWindow.bt_changedevicename.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (mainWindow_isconnected) {
-                    MakeChangeNameWindow(DeviceManager.getDeviceName(connectedDeviceid), connectedDeviceid);
-                }
+        mainWindow.bt_changedevicename.addActionListener(e -> {
+            if (mainWindow_isconnected) {
+                MakeChangeNameWindow(DeviceManager.getDeviceName(connectedDeviceid), connectedDeviceid);
             }
         });
-        mainWindow.bt_changedir.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MakeChangeDirWindow(ConfigurationUtils.getcfg("downloadDIR"));
-            }
-        });
+        mainWindow.bt_changedir.addActionListener(e -> MakeChangeDirWindow(ConfigurationUtils.getcfg("downloadDIR")));
         TrayIcon trayIcon = new TrayIcon((new ImageIcon(Objects.requireNonNull(WindowManager.class.getResource("/drawable/logo.png"))).getImage()));
         SystemTray systemTray = SystemTray.getSystemTray();
         trayIcon.setImageAutoSize(true);
@@ -59,12 +51,7 @@ public class WindowManager {
                 mainWindow.setVisible(false);
             }
         });
-        mainWindow.button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        mainWindow.button1.addActionListener(e -> System.exit(0));
         trayIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -76,22 +63,17 @@ public class WindowManager {
                 mainWindow.setVisible(true);
             }
         });
-        mainWindow.bt_sendfile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                FileSystemView fsv = FileSystemView.getFileSystemView();
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setCurrentDirectory(fsv.getHomeDirectory());
-                fileChooser.setDialogTitle("请选择要上传的文件...");
-                fileChooser.setApproveButtonText("确定");
-                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                int result = fileChooser.showOpenDialog(null);
-                if (JFileChooser.APPROVE_OPTION == result) {
-                    String path=fileChooser.getSelectedFile().getPath();
-                    File f= new File(path);
-                    ServerManager.ch.sendcmd("pcsendfile<port>" + 37700 + "</port>"+"<filename>"+f.getName()+"</filename>");
-                    new sendFileServer(37700, path).start();
-                }
+        mainWindow.bt_sendfile.addActionListener(e -> {
+            FileSystemView fsv = FileSystemView.getFileSystemView();
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(fsv.getHomeDirectory());
+            fileChooser.setDialogTitle("请选择要上传的文件...");
+            fileChooser.setApproveButtonText("确定");
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            int result = fileChooser.showOpenDialog(null);
+            if (JFileChooser.APPROVE_OPTION == result) {
+                String filepath = fileChooser.getSelectedFile().getPath();
+                startSendFileServer(filepath);
             }
         });
         mainWindow.bt_sendfile.setTransferHandler(new TransferHandler() {
@@ -106,9 +88,7 @@ public class WindowManager {
                     if (filepath.endsWith("]")) {
                         filepath = filepath.substring(0, filepath.length() - 1);
                     }
-                    File f= new File(filepath);
-                    ServerManager.ch.sendcmd("pcsendfile<port>" + 37700 + "</port>"+"<filename>"+f.getName()+"</filename>");
-                    new sendFileServer(37700, filepath).start();
+                    startSendFileServer(filepath);
                     return true;
                 } catch (Exception e) {
 
@@ -118,14 +98,20 @@ public class WindowManager {
 
             @Override
             public boolean canImport(JComponent comp, DataFlavor[] flavors) {
-                for (int i = 0; i < flavors.length; i++) {
-                    if (DataFlavor.javaFileListFlavor.equals(flavors[i])) {
+                for (DataFlavor flavor : flavors) {
+                    if (DataFlavor.javaFileListFlavor.equals(flavor)) {
                         return true;
                     }
                 }
                 return false;
             }
         });
+    }
+
+    public static void startSendFileServer(String filepath) {
+        File f = new File(filepath);
+        ServerManager.ch.sendcmd("pcsendfile<port>" + 37700 + "</port>" + "<filename>" + f.getName() + "</filename>");
+        new sendFileServer(37700, filepath).start();
     }
 
     public static void addCommandLine(String s) {
@@ -140,7 +126,7 @@ public class WindowManager {
     }
 
     public static void setMainWindowQRcode(String file) {
-        mainWindow.QRcodePic.setIcon(new ImageIcon("cache/temp.png"));
+        mainWindow.QRcodePic.setIcon(new ImageIcon(file));
     }
 
     //codewindow

@@ -22,6 +22,6 @@ public class QRcodeManager {
         String imgMSG = "qrcode:pc<ip>" + hostAddress + "</ip><port>" + port + "</port><hostname>" + hostName + "</hostname>";
         WindowManager.addCommandLine("生成新二维码..");
         QRcode.createImage(200, 200, "png", imgMSG, directory.getPath() + "/temp.png");
-        WindowManager.setMainWindowQRcode("/cache/temp.png");
+        WindowManager.setMainWindowQRcode("cache/temp.png");
     }
 }
