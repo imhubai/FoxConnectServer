@@ -247,6 +247,7 @@ public class MainWindow extends JFrame {
                                 ta_commandline.setBackground(new Color(0xf0f0f0));
                                 ta_commandline.setRows(10);
                                 ta_commandline.setFont(new Font("\u5fae\u8f6f\u96c5\u9ed1", Font.PLAIN, 10));
+                                ta_commandline.setOpaque(false);
                                 scrollPane1.setViewportView(ta_commandline);
                             }
                             panel15.add(scrollPane1);
@@ -313,6 +314,6 @@ public class MainWindow extends JFrame {
     JTextArea ta_commandline;
     private JPanel panel5;
     private JPanel hSpacer2;
-     JButton button1;
+    JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

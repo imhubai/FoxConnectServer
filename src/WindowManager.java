@@ -120,6 +120,11 @@ public class WindowManager {
     }
 
     public static void setMainWindow_isconnected(boolean c, String devicename, String deviceid) {
+        mainWindow_isconnected = c;
+        connectedDeviceid = deviceid;
+        mainWindow.tv_WaittingConnect.setText("设备连接成功 - " + DeviceManager.getDeviceName(deviceid));
+    }
+    public static void setMainWindow_isconnected(String deviceid) {
         mainWindow_isconnected = true;
         connectedDeviceid = deviceid;
         mainWindow.tv_WaittingConnect.setText("设备连接成功 - " + DeviceManager.getDeviceName(deviceid));
